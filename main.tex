@@ -1,0 +1,48 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+% Load Thesis Class
+\documentclass{DEIThesis}
+
+\title{Design and Development of a Cloud-Based Data Lake and Business Intelligence Solution on AWS}
+
+\author{Christian Marchiori}
+\studentId{2078343}
+
+% Advisor
+\advisor{Prof. Gianmaria Silvello}
+
+% If you are co-advised
+\coadvisor{}
+\coadvisorsUniversity{}
+
+\university{University of Padova}
+\departmentname{Information Engeneering}
+\mastername{Computer Engineering}
+\academicYear{2023/2024}
+
+\begin{filecontents*}[overwrite]{\jobname.xmpdata}
+    \Title{Design and Development of a Cloud-Based Data Lake and Business Intelligence Solution on AWS}
+    \Author{Christian Marchiori}
+    \Language{en-EN}
+    \Keywords{Computer Engineering\sep LaTeX}
+\end{filecontents*}
+
+% Document
+
+\begin{document}
+    % The front matter (Cover, ToC, Abstract, etc...)
+    \frontmatter
+
+    % The main content
+    \mainmatter
+    
+    \include{chapters/01_introduction}
+    \include{chapters/02_background}
+    \include{chapters/03_system}
+    \include{chapters/04_experiments}
+    \include{chapters/99_conclusions}
+    
+    % Bibliography, appendix, acknowledges, etc...
+    \backmatter
+\end{document}
