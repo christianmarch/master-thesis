@@ -1,0 +1,126 @@
+%!TEX root = ../main.tex
+
+\chapter{Introduction}
+\label{chp:intro}
+
+\section{The company}
+
+This thesis was conducted in collaboration with Unox S.p.A., a leading company in the professional cooking ovens market. Unox manufactures various oven series and distributes its products to over 130 countries worldwide. In addition to its product offerings, the company provides after-sales services, including cooking training, customer support, and technical assistance.
+
+\subsection{Company Profile}
+
+Unox S.p.A. has been active since 1990, specializing in the production of professional appliances for the catering and baking industries. As a product-focused company, its primary emphasis is on manufacturing and customer support for its ovens, rather than software development. Unox operates in the \ac{B2B} sector, serving a diverse range of clients, from small bakeries to large restaurant chains and catering centers.
+
+Initially, the company capitalized on a market gap by producing ovens primarily for suppliers of frozen croissants in Southern Europe. These products were mainly provided to small retailers through lease agreements with large suppliers. Over time, Unox shifted its focus to producing higher-quality products for direct sale to end-users. This strategic change allowed the company to expand into Northern Europe and laid the groundwork for further growth in other continents.
+
+Today, Unox offers a wide range of products, reflecting its evolution over the years. Recently, the company has increasingly focused on the digital advancement of its offerings, aiming to provide customers with a more comprehensive and satisfying experience. The company’s flagship models now feature touch-screen panels, voice control, remote operation, data management for large companies, and other advanced features.
+
+To meet the demands of this digital shift, Unox began developing software in-house to support these services, expanding its workforce to include software developers. The company currently has two dedicated software development teams and a Research and Development (R\&D) team.
+
+Despite its growth into a multinational corporation, Unox has remained family-owned. Production was always mainly based in Italy until a new production site was opened in the US in 2022. Since the beginning, international expansion has been focused on commercial operations, with the company establishing sales offices worldwide.
+
+Unox employs a high level of vertical integration, producing most of its components in-house or through subsidiaries.
+
+\subsection{Software Development at Unox}
+
+Despite being a company primarily focused on manufacturing high-quality professional ovens, software development plays a critical role in Unox's operations. The digital transformation of its products, combined with the need for integrated connectivity and advanced functionalities, has made software a cornerstone of the company's offerings. Today, Unox ovens are fully digitized and connected, featuring capabilities such as remote control via mobile applications, data export for performance analysis, and integration with external systems through APIs. This shift has led to the formation of specialized software development teams that ensure Unox ovens remain at the cutting edge of technological innovation.
+
+Unox currently operates with four distinct software development teams, each with a specialized focus:
+\begin{itemize}
+    \item \textbf{IT Team}: This team is responsible for the internal infrastructure that supports Unox's daily operations. Their work includes managing the company's network, ensuring data security, and maintaining the systems that enable smooth communication and operational efficiency across all departments.
+
+    \item \textbf{R\&D Team}: Unox's Research and Development team focuses on innovation, developing new technologies for ovens to improve performance, energy efficiency, and user experience. This team collaborates with various departments to drive the technical evolution of Unox’s products.
+
+    \item \textbf{Software Developer Team}: This team is at the heart of the technical development process, responsible for creating, maintaining, testing, and documenting the algorithms that optimize oven performance. Their tasks include defining technical specifications in collaboration with other teams, implementing reliable and efficient solutions, and supporting field technicians to resolve software-related issues. From initial concept to final release, the Software Developer team ensures that each line of code contributes to the operation of Unox products.
+
+    \item \textbf{Digital Experience Team}: As part of the company's push towards a fully connected ecosystem, the Digital Experience team focuses on developing cloud-based applications, both for web and mobile platforms, and managing REST APIs. They are responsible for creating the digital interfaces that allow users to remotely control and monitor ovens, manage data streams from connected devices globally, and integrate Unox products with other systems. Additionally, this team designs and maintains the cloud infrastructure, ensuring the reliability and scalability of Unox’s digital services. They collaborate with data scientists to extract valuable insights from the vast amounts of telemetry data produced by the ovens. They also coordinate closely with the UI/UX team to deliver intuitive user experiences.
+    This is the team I have been a part of during my internship, where I contributed to the development and enhancement of Unox's digital services, helping to bridge the gap between product performance and user interaction.
+\end{itemize}
+
+Each of these teams plays a critical role in ensuring that Unox continues to lead the market, not only with its physical products but also through its advanced digital offerings.
+
+\section{Initial problem}
+
+In the modern business environment, the ability to access information quickly and accurately is a key factor for competitiveness. Strategic decisions rely on precise analysis, which requires not only access to data but also appropriate tools for managing and interpreting it. Without the implementation of a structured \ac{BI} system, such as the one developed in this project, Unox faces several challenges that limit the effectiveness and efficiency of its data extraction and analysis processes, impacting the entire company structure.
+
+The main issue concerns the way data is requested, processed, and distributed within the company. Specifically, when an employee from a department like Research and Development, IT, or a technical division needs data for specific analyses, they turn to the Digital Experience team, which is designated to manage access to the company’s databases and has greater expertise in running complex queries. While other teams may have some knowledge in this area, the Digital Experience team is responsible for overseeing and managing these processes. However, this approach slows down the flow of information and affects overall company efficiency, creating bottlenecks in decision-making processes.
+
+The data extraction process involves several labor-intensive stages: the Digital Experience team must first understand the nature of the problem, identify the relevant tables and data, envision the final output of the analysis, and then develop a TypeScript script to access the databases, execute queries, and transform the data into a usable format for analysis. This "ad hoc" approach, while effective for specific requests, requires a significant amount of time and resources. Each request for analysis or reporting typically involves hours of work from an expert, limiting the company’s ability to respond quickly to new market demands or opportunities.
+
+In some cases, automated scripts are developed to reduce the repetitiveness of this process, executing periodic extractions and sending the data via email to relevant stakeholders. However, while this approach is useful, it remains limited. First, each automated script must be specifically developed for each case, leading to development and maintenance costs, along with cloud resource execution costs (such as \ac{AWS} Lambda used to automate the periodic execution of these scripts). Additionally, these automations only cover a small portion of the company's overall needs and lack the flexibility to quickly respond to more complex or unexpected analysis requests.
+
+The current working model also strongly limits the autonomy of non-technical teams. Many employees, despite needing data to improve their analyses and make informed decisions, are unable to directly access the information, as using advanced query languages or interacting with complex databases is beyond their expertise. This not only increases the workload for the Digital Experience team but also slows response times and decision-making, negatively impacting overall operational efficiency.
+
+Other motivations behind this project include the need to improve data governance and integration between different information silos. In an environment where data is fragmented across various systems and databases, it becomes difficult to obtain a unified and coherent view of business performance, identify inefficiencies, or explore new growth opportunities. Implementing a \ac{BI} system, supported by an \ac{AWS}-based Data Lake, overcomes these barriers, improving the management of company data and simplifying real-time access to information.
+
+In summary, the main reasons for implementing a new Business Intelligence system are:
+
+\begin{itemize}
+    \item \textbf{Simplifying data access for non-technical teams}: Creating an interface and tools that enable employees without advanced technical skills to perform analysis and reporting independently.
+    \item \textbf{Data integration}: Overcoming data fragmentation and ensuring a coherent integration of information from various systems, facilitating collaboration and data-driven decision-making.
+    \item \textbf{Improving operational efficiency}: Optimizing the use of the Digital Experience team's resources, reducing the workload related to ad hoc requests and allowing them to focus on higher-value tasks.
+    \item \textbf{Reducing data extraction and analysis times}: Eliminating bottlenecks and automating repetitive processes to allow different teams to independently access relevant information.
+    \item \textbf{Scalability and flexibility}: Adopting a scalable and flexible platform, such as \ac{AWS}, to efficiently manage large volumes of data and quickly adapt to the company's evolving needs.
+\end{itemize}
+
+With these premises, the project aims to revolutionize the way the company manages, accesses, and analyzes data, significantly improving the effectiveness of decision-making processes.
+
+
+\section{Goals}
+The primary objective of this project is to develop a unified and flexible system for managing the data generated by industrial ovens, without the need to create separate workflows for different stages of the process. The solution must ensure a consistent approach both during the bulk load phase, which involves large-scale data imports, and in the subsequent operational phase, where smaller but more frequent data updates are managed. This requires the design of a data ingestion infrastructure that can dynamically adapt to different data volumes, ensuring efficiency and ease of maintenance.
+
+Another key goal is to ensure the efficiency of the system in terms of resource usage, with a strong focus on cost optimization. Given that the architecture relies heavily on several managed services from \ac{AWS}, such as Glue, Lambda, and Step Functions, it is crucial to minimize resource consumption, reducing the execution time and memory usage of various tasks. This helps to keep operational costs in check, as \ac{AWS} pricing is often directly tied to the resources utilized.
+
+An additional objective of the project is to provide a system that integrates a query engine for data analysis and a dashboard for \ac{KPI} visualization. Queries should be executed using tools like \ac{AWS} Athena, which allows for \acused{SQL}\ac{SQL} queries to be run directly on data stored in Amazon S3, leveraging a flexible and scalable system without the need for complex database setups. The interactive dashboards, created using \ac{AWS} QuickSight, will allow users to visualize data intuitively, monitor key metrics, and generate customized reports.
+
+Furthermore, the system must ensure that the data is kept synchronized with the production databases, offering up-to-date access to information for reporting and monitoring purposes. A secondary, yet innovative, optional objective is the exploration of generative AI techniques to automate the creation of dashboards in \ac{AWS} QuickSight, further simplifying the user experience and enhancing the overall efficiency of the data visualization process.
+
+In summary, the project aims to build a solution that is flexible, efficient, and capable of supporting data analysis and visualization effectively, with a focus on automation, resource optimization, and ease of use.
+\section{Proposed Solution}
+%\sout{The solution developed for this thesis aims to address the challenge of efficiently managing the large volumes of data generated by industrial ovens, including general operational data and IoT sensor data.}
+The proposed system is built on a scalable, automated architecture using \ac{AWS} cloud technologies, enabling near real-time access to up-to-date information for reporting and analysis. The overarching goal is to create a data pipeline that reliably extracts, transforms, stores, and makes data available for analysis with minimal human intervention.
+
+The system is designed to automate the entire data lifecycle, from the extraction of raw data to its transformation into structured formats, storage in a data lake, and final usage for analytics. Automation was a critical requirement, as the high frequency and volume of data generated by the ovens demanded a process that could run continuously without manual oversight. Additionally, ensuring that the data is always current and accessible for users was a priority, which required careful orchestration and scheduling of data extraction and processing tasks.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[width=1\textwidth]{res/Intro_flow.svg}
+    \caption{System general flow.}
+\end{figure}
+
+The primary sources of data include two distinct databases: \textbf{PostgreSQL}, which stores general operational data about the ovens or users' management data, and \textbf{MongoDB}, which holds IoT data from sensors, alarms, and other event-driven information. Since these databases have different structures and serve different purposes, the solution had to accommodate specific workflows for each.
+
+For the PostgreSQL database, \ac{AWS} Glue was selected as the main \ac{ETL} service. Glue is a fully managed, serverless \ac{ETL} tool that simplifies data preparation by running Python or Scala scripts without the need for managing servers. In this context, Glue is responsible for connecting to the PostgreSQL database, extracting the necessary tables, transforming the data into a columnar file format, and loading it into Amazon S3 for long-term storage. One of the key challenges was ensuring that the system did not reprocess previously extracted data during subsequent extractions. This issue was addressed using Glue’s Bookmarks feature, which tracks the progress of each job by recording the last data row processed. When the \ac{ETL} job runs again, it starts from where the last job left off, ensuring only new data is ingested.
+
+For the MongoDB database, which stores unstructured IoT data, the extraction process required a custom approach, as Glue's Bookmarks feature does not support MongoDB. To address this, the system leverages \ac{AWS} Lambda, a serverless computing service that runs code in response to specific events. A master Lambda function orchestrates multiple worker Lambdas, each of which processes data from a specific set of devices (ovens). This system distributes the workload efficiently, allowing for a scalable and flexible data extraction pipeline. Each worker Lambda extracts, filters, and transforms the data, then formats it in Parquet and stores it in Amazon S3. By employing this distributed architecture, the system ensures that even large volumes of IoT data are processed efficiently and in parallel.
+
+The extracted data is stored in a data lake on Amazon S3, organized into three distinct layers:
+\begin{itemize}
+    \item raw,
+    \item curated,
+    \item and analytics.
+\end{itemize}
+These layers reflect the level of transformation and aggregation applied to the data. In the raw layer, data is stored in its original form, directly after extraction, without any significant transformations. The curated layer includes data that has undergone partitioning, formatting, and compression to optimize performance for querying. Finally, in the analytics layer, data is pre-aggregated to facilitate specific use cases, such as recurring reports or complex queries, improving the efficiency of downstream analytics.
+
+To streamline the management of this multi-stage process, \ac{AWS} Step Functions are used to orchestrate the entire workflow. Step Functions allow the system to define and automate the execution of each task in the pipeline, ensuring that each job runs in the correct sequence and avoiding conflicts between components. Additionally, the frequency of execution can be easily configured, allowing for flexible scheduling of data extraction and processing based on business requirements.
+
+Once the data is processed and stored in S3, it is cataloged using the \ac{AWS} Data Catalog. The Data Catalog consolidates metadata for all the tables and files stored in S3, making it easier for other \ac{AWS} services to reference and query the data. This unified metadata management system allows users to interact with the data seamlessly, without needing to define the underlying storage paths or configurations manually.
+
+For querying and analyzing the data, the solution integrates two key tools: \ac{AWS} Athena and \ac{AWS} Quicksight. \ac{AWS} Athena is an interactive query service that enables users to run \ac{SQL} queries directly on the data stored in Amazon S3, leveraging the metadata defined in the Data Catalog. This provides a powerful tool for on-demand analysis without requiring the setup of additional databases or data warehouses. \ac{AWS} Quicksight, on the other hand, is a \ac{BI} tool that allows users to create interactive dashboards, visualizations, and reports. By integrating Quicksight, the system enables non-technical users to explore the data, generate insights, and produce business reports with an intuitive interface.
+
+In conclusion, the proposed solution offers a fully automated, scalable, and flexible architecture for managing and analyzing the data generated by industrial ovens. It leverages advanced cloud services to ensure that data is continually updated, efficiently processed, and readily available for users, while minimizing the need for manual intervention. This approach not only improves the overall efficiency of data management but also enhances the ability to derive meaningful insights from large volumes of industrial data.
+\section{Outcomes}
+The results of the project were highly positive, with the implemented system proving to function effectively and reliably. During the testing phase, a snapshot of the production database was used, allowing the entire data ingestion pipeline to be validated and the system's performance to be tested in a realistic environment. Specifically, the initial ingestion of IoT data was completed using a snapshot of the production database up to September 2, 2024, ensuring that all historical data was successfully loaded into the data lake. Once ready for use with the live production databases, the transition can be easily achieved by running a pre-configured script that adapts the custom bookmarks, updates the database credentials and connection settings, and activates the scheduler that automates the regular execution of the system.
+
+One of the key advantages of the implemented solution is the significant reduction in on-demand query times, with an estimated improvement of X\% compared to the previous approach. Thanks to the architecture based on Amazon S3, Athena, and \ac{AWS} Quicksight, queries are now much faster and more efficient, making the data readily available for analysis without substantial delays.
+
+Another significant benefit is the simplification of access to the query platforms. Before the implementation, anyone outside the Digital Experience team had to either obtain access to a specific database or install a GUI client and have the necessary credentials for each database. With the new system, data access is managed directly through the \ac{AWS} console, provided the user has an account with the necessary permissions to use query or reporting tools. If an employee does not have an \ac{AWS} account, it can be quickly created by one of the company's software teams.
+
+From a cost perspective, the monthly operational cost of the system has been estimated at around 400\$, with fluctuations based on actual usage. The initial ingestion of all historical data, going back to 2015, incurred a one-time cost of approximately 3000\$, primarily due to \ac{AWS} Lambda and \ac{AWS} Glue services, which were essential for populating the data lake.
+
+While the overall results are highly satisfactory, there is still room for improvement, particularly in optimizing the efficiency of \ac{AWS} Lambda functions. Reducing the execution times and memory usage of the Lambda functions could significantly lower both the computation costs and the query response times. This would enhance the overall system efficiency and further reduce the data ingestion costs.
+\section{Outline}
+The subsequent chapters are structured to explore the necessary backgrounds, describe the entire system from a technical point of view, prove the application functionalities through a main use case, perform other experiments and evaluate the system’s performance.
+
+[...TO DO...]
+
