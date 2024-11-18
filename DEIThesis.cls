@@ -79,6 +79,9 @@
 \RequirePackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows.meta}
 
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
 % references
 \RequirePackage[autostyle]{csquotes}
 \RequirePackage[backend=biber]{biblatex}
@@ -276,21 +279,21 @@
   \cleardoublepage
 
   % insert list of algorithms
-  \phantomsection
-  \setcounter{page}{15}
-  \addcontentsline{toc}{chapter}{\listalgorithmname}
-  \listofalgorithms
-  \cleardoublepage
+  %\phantomsection
+  %\setcounter{page}{15}
+  %\addcontentsline{toc}{chapter}{\listalgorithmname}
+  %\listofalgorithms
+  %\cleardoublepage
 
   % insert list of code snippets
   \phantomsection
-  \setcounter{page}{17}
+  \setcounter{page}{15}
   \addcontentsline{toc}{chapter}{\lstlistlistingname}
   \lstlistoflistings
   \cleardoublepage
 
   % insert list of abbreviations/acronyms
-  \setcounter{page}{19}
+  \setcounter{page}{17}
   \acronyms
 }
 
@@ -327,7 +330,7 @@
   % set academic year in footer
   \cfoot{
     \normalsize\textsc{Academic Year \\ \@academicYear} \\
-    \normalsize\textsc{Date : X december 2024}
+    \normalsize\textsc{Date : 4 december 2024}
 }
 
   % set brands in header

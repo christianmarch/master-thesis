@@ -2,3 +2,22 @@
 
 \chapter{Conclusions and Future Works}
 \label{chp:conclusions}
+This thesis presents the design and development of a data lake and business intelligence solution on \ac{AWS}, specifically tailored to improve data accessibility, integration, and analysis within UNOX S.p.A. Through leveraging \ac{AWS} services such as \ac{S3}, Glue, Athena, and QuickSight, the project succeeded in creating a robust architecture that automates data ingestion, transformation, and storage, thus enabling near real-time access to data analytics across multiple departments.
+
+The system introduced not only provides a centralized data repository but also empowers non-technical users with tools to perform independent analyses. By implementing a data lake over a traditional data warehouse, UNOX gains flexibility in handling diverse data sources, supporting both structured and unstructured data formats. Furthermore, the architecture's reliance on serverless components, such as \ac{AWS} Glue, has minimized infrastructure management efforts and optimized the system's scalability and cost-efficiency.
+
+Performance tests confirm the solution's reliability and responsiveness, significantly reducing the time required for data queries and report generation. Financial analyses also indicate that the system is sustainable for long-term operation, with manageable monthly costs.
+
+Despite the positive results achieved, several areas for improvement emerged during the implementation, particularly regarding the initial MongoDB data ingestion process. This bulk loading phase was identified as the most resource-intensive part of the pipeline in terms of both time and cost. The initial ingestion from MongoDB is markedly slow, taking several weeks to complete and incurring high costs relative to the workload managed. This inefficiency is primarily due to the long response times for MongoDB queries, which can take several minutes to retrieve \ac{IoT} data generated over two months for a single device. 
+
+One approach to mitigate these costs is to dynamically adjust the memory allocated to each Lambda worker, based on the volume of data extracted. Currently, memory allocation remains static and relatively high to prevent overload issues, but refining this setting based on workload requirements could offer a slight reduction in cost.
+
+An alternative to the existing ingestion method could involve employing a dedicated migration service, such as \ac{AWS} \ac{DMS}, to transfer the full historical database into Amazon \ac{S3}. \ac{AWS} \ac{DMS} could handle bulk data migrations more efficiently, potentially reducing both the time and cost of initial data ingestion.
+
+Regarding the operational phase, optimizations could be achieved by implementing a \ac{CDC} or a streaming data transfer system. In this project context, \ac{CDC} would continuously track and propagate changes from the source databases to the data lake, ensuring that only new or updated data is transferred, which would streamline data processing and reduce load times. A streaming transfer system would enable real-time data ingestion by pushing data as it is created, ideal for rapid data analysis and time-sensitive reporting.
+
+From a storage perspective, further cost reductions could be achieved by categorizing data into different storage classes based on usage and tagging files when they are created in the data lake. For instance, Amazon \ac{S3}'s Intelligent-Tiering could automatically move data between storage classes based on access patterns, minimizing costs without manual intervention \cite{s3lifecycles}.
+
+Additionally, exploring advanced machine learning integrations, especially for predictive analytics, could add further value to the \ac{BI} platform. 
+
+Overall, the project represents a substantial step forward in the digital transformation of UNOX's data management capabilities, fostering a data-driven culture and enhancing decision-making processes across the organization.
